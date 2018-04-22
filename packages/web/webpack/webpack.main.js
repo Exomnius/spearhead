@@ -1,5 +1,5 @@
 const config = require('./webpack.config');
-const babelConfig = require('./babel.config');
+const babelConfig = require('../babel.config');
 const webpack = require('webpack');
 
 module.exports = {

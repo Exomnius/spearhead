@@ -17,5 +17,7 @@ features:
 * SSR caching [TODO]
 * Component caching [TODO]
 
-build: 
-* webpack [TODO]
+development:
+* webpack
+* webpack dev server
+* babel

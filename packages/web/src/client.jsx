@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import BrowserRouter from "react-router-dom/BrowserRouter";
-import App from './pages/App/App';
+import App from './pages/App';
 
 const MOUNT_NODE = 'react-root';
 
