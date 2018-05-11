@@ -16,6 +16,7 @@ features:
 * Authentication [TODO]
 * SSR caching [TODO]
 * Component caching [TODO]
+* Clustering [TODO]
 
 development:
 * webpack

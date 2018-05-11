@@ -17,11 +17,20 @@ const MOUNT_NODE = 'react-root';
     // mount to DOM
     if (rootComponent) {
       const mountNode = document.getElementById(MOUNT_NODE);
-      ReactDOM.render(rootComponent, mountNode);
+
+      if (__DISABLE_SSR__) {
+        ReactDOM.render(rootComponent, mountNode);
+      } else {
+        ReactDOM.hydrate(rootComponent, mountNode);
+      }
     } else {
-      //Logger.error('No root element found!');
+      //todo: Logger.error('No root element found!');
     }
   };
 
-  await render()
+  await render();
+
+  // if (module.hot) {
+  //   module.hot.accept();
+  // }
 })();

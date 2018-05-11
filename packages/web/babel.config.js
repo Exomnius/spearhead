@@ -1,5 +1,5 @@
 module.exports = {
-  "presets": [
+  presets: [
     ['babel-preset-env', {
       targets: {
         browsers: ['last 2 versions']
@@ -8,7 +8,7 @@ module.exports = {
     'babel-preset-stage-2',
     'babel-preset-react'
   ],
-  "plugins": [
+  plugins: [
     'babel-plugin-transform-runtime',
     'babel-plugin-add-module-exports'
   ]

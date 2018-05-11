@@ -3,8 +3,8 @@ const babelConfig = require('../babel.config');
 const webpack = require('webpack');
 
 module.exports = {
-  name: config.name,
-  target: config.target,
+  name: 'client',
+  target: 'web',
   performance: config.webpack.performance,
   stats: config.webpack.stats,
   mode: 'development',
@@ -13,6 +13,7 @@ module.exports = {
   },
   entry: {
     'main': [
+      'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true',
       'babel-polyfill',
       config.paths.src('client.jsx')
     ]
@@ -20,7 +21,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js',
-    path: config.paths.dist()
+    path: config.paths.dist('js')
   },
   module: {
     rules: [{
@@ -41,7 +42,7 @@ module.exports = {
       '__DEV__': true,
       '__DEVTOOLS__': true
     }),
-
-    new webpack.IgnorePlugin(/webpack-stats\.json$/)
+    new webpack.IgnorePlugin(/webpack-stats\.json$/),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };

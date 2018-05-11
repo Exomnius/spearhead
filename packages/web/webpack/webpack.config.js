@@ -5,12 +5,6 @@ const path = require('path');
  */
 const config = {
   /**
-   * general
-   */
-  name: 'client',
-  targets: 'web',
-
-  /**
    * project structure
    */
   path_base: '.',
