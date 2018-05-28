@@ -45,7 +45,7 @@ if (__DEV__) {
   );
 }
 
-app.get('/', async (req, res) => {
+app.use(async (req, res) => {
   let modules = [];
 
   const hydrate = () => {
@@ -80,9 +80,7 @@ app.get('/', async (req, res) => {
 });
 
 // todo: make port env
-(async () => {
-  await Loadable.preloadAll();
-
+Loadable.preloadAll().then(() => {
   app.listen(3000, err => {
     if (err) {
       console.error(err);
@@ -92,4 +90,4 @@ app.get('/', async (req, res) => {
       console.info('==> 💻  Open http://%s:%s in a browser to view the app.', 'localhost', 3000);
     }
   });
-})();
+});

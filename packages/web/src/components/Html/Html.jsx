@@ -25,8 +25,7 @@ const Html = ({content, bundles}) => {
 };
 
 Html.propTypes = {
-  content: PropTypes.string.isRequired,
-  mainBundle: PropTypes.object.isRequired,
+  content: PropTypes.string,
   bundles: PropTypes.array
 };
 
