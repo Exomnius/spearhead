@@ -10,6 +10,7 @@ module.exports = {
   ],
   plugins: [
     'babel-plugin-transform-runtime',
-    'babel-plugin-add-module-exports'
-  ]
+    'babel-plugin-add-module-exports',
+    "react-loadable/babel"
+  ],
 };

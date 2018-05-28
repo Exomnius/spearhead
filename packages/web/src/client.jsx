@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Loadable from 'react-loadable';
 import BrowserRouter from "react-router-dom/BrowserRouter";
 import App from './pages/App';
 
@@ -18,11 +19,9 @@ const MOUNT_NODE = 'react-root';
     if (rootComponent) {
       const mountNode = document.getElementById(MOUNT_NODE);
 
-      if (__DISABLE_SSR__) {
-        ReactDOM.render(rootComponent, mountNode);
-      } else {
-        ReactDOM.hydrate(rootComponent, mountNode);
-      }
+      await Loadable.preloadReady();
+
+      ReactDOM.hydrate(rootComponent, mountNode);
     } else {
       //todo: Logger.error('No root element found!');
     }

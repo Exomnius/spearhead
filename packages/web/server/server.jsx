@@ -1,16 +1,23 @@
+import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import express from 'express';
 import webpack from 'webpack';
-import { renderToString } from 'react-dom/server';
+import {renderToString} from 'react-dom/server';
 import {StaticRouter} from "react-router-dom";
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import Loadable from 'react-loadable';
+import {getBundles} from 'react-loadable/webpack';
 import devWebpackConfig from './../webpack/webpack.dev';
 import Html from '../src/components/Html/Html';
 import App from "../src/pages/App";
 
+import stats from './../dist/react-loadable.json';
+
 const app = express();
+
+app.use('/dist', express.static(path.join(__dirname, '..', 'dist')));
 
 if (__DEV__) {
   const compiler = webpack(devWebpackConfig);
@@ -39,39 +46,50 @@ if (__DEV__) {
 }
 
 app.get('/', async (req, res) => {
-    const hydrate = () => {
-        res.write('<!doctype html>');
-        ReactDOMServer.renderToNodeStream(<Html />).pipe(res);
-    };
+  let modules = [];
 
-    if (__DISABLE_SSR__) {
-        return hydrate();
-    }
+  const hydrate = () => {
+    res.write('<!doctype html>');
+    ReactDOMServer.renderToNodeStream(<Html/>).pipe(res);
+  };
 
-    const context = {};
-    const content = renderToString(
-        <StaticRouter location={req.url} context={context}>
-            <App/>
-        </StaticRouter>
-    );
+  if (__DISABLE_SSR__) {
+    return hydrate();
+  }
 
-    if (context.url) {
-      res.redirect(context.url);
-    } else {
-      const response = <Html content={content}/>;
-      res.status(200).send(`<!doctype html>${ReactDOMServer.renderToString(response)}`);
-    }
+  const context = {};
+  const content = renderToString(
+    <Loadable.Capture report={moduleName => modules.push(moduleName)}>
+      <StaticRouter location={req.url} context={context}>
+        <App/>
+      </StaticRouter>
+    </Loadable.Capture>
+  );
+
+  if (context.url) {
+    res.redirect(context.url);
+  } else {
+    const bundles = getBundles(stats, modules);
+
+    const response = <Html
+      content={content}
+      bundles={bundles}
+    />;
+    res.status(200).send(`<!doctype html>${ReactDOMServer.renderToString(response)}`);
+  }
 });
 
 // todo: make port env
 (async () => {
-  app.listen(3000, err => {
-        if (err) {
-            console.error(err);
-        }
+  await Loadable.preloadAll();
 
-        if (__DEV__) {
-          console.info('==> 💻  Open http://%s:%s in a browser to view the app.', 'localhost', 3000);
-        }
-    });
+  app.listen(3000, err => {
+    if (err) {
+      console.error(err);
+    }
+
+    if (__DEV__) {
+      console.info('==> 💻  Open http://%s:%s in a browser to view the app.', 'localhost', 3000);
+    }
+  });
 })();

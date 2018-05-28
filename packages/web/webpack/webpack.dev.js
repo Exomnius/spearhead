@@ -1,6 +1,7 @@
 const config = require('./webpack.config');
 const babelConfig = require('../babel.config');
 const webpack = require('webpack');
+const { ReactLoadablePlugin } = require('react-loadable/webpack');
 
 module.exports = {
   name: 'client',
@@ -43,6 +44,9 @@ module.exports = {
       '__DEVTOOLS__': true
     }),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new ReactLoadablePlugin({
+      filename: config.paths.dist('react-loadable.json')
+    })
   ]
 };
