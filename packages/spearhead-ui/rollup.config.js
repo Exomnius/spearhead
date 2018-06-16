@@ -19,6 +19,12 @@ const bundle = (fileFormat, {format, minify}) => {
   }
 
   const shouldMinify = minify && format === FORMATS.UMD;
+  const externals = format === FORMATS.UMD
+    ? Object.keys(pkg.peerDependencies || {})
+    : [
+      ...Object.keys(pkg.dependencies || {}),
+      ...Object.keys(pkg.peerDependencies || {})
+    ];
 
   return {
     input: 'src/index.js',
@@ -32,12 +38,7 @@ const bundle = (fileFormat, {format, minify}) => {
         'prop-types': 'PropTypes'
       }
     },
-    external: format === FORMATS.UMD
-      ? Object.keys(pkg.peerDependencies || {})
-      : [
-        ...Object.keys(pkg.dependencies || {}),
-        ...Object.keys(pkg.peerDependencies || {})
-      ],
+    external: externals,
     plugins: [
       resolve({ jsnext: true, main: true }),
       commonjs({ include: 'node_modules/**' }),

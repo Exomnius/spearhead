@@ -1,2 +1,2 @@
 
-export { default as NavBar} from 'component/NavBar/NavBar';
+export { default as NavBar} from './NavBar/NavBar';

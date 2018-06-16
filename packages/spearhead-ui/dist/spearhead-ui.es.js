@@ -1,1 +1,12 @@
-export { default as NavBar } from 'component/NavBar/NavBar';
+import React from 'react';
+
+var NavBar = function NavBar() {
+  return React.createElement(
+    'header',
+    null,
+    'nav bar'
+  );
+};
+module.exports = exports['default'];
+
+export { NavBar };
