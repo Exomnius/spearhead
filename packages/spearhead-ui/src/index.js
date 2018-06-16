@@ -1,5 +1,2 @@
-import NavBar from 'components/NavBar/NavBar';
 
-export default {
-  NavBar
-};
+export { default as NavBar} from 'component/NavBar/NavBar';
