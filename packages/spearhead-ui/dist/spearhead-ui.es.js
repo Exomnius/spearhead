@@ -1,12 +1,26 @@
 import React from 'react';
+import classNames from 'classnames';
 
-var NavBar = function NavBar() {
+var NavBarLogo = function NavBarLogo(_ref) {
+  var children = _ref.children;
   return React.createElement(
-    'header',
+    'div',
     null,
-    'nav bar'
+    children
   );
 };
-module.exports = exports['default'];
+
+var cx = classNames.bind(undefined);
+
+var NavBar = function NavBar(_ref) {
+  var children = _ref.children;
+  return React.createElement(
+    'nav',
+    { className: cx.bind(undefined.NavBar) },
+    children
+  );
+};
+
+NavBar.Logo = NavBarLogo;
 
 export { NavBar };

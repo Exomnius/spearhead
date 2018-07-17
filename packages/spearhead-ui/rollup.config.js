@@ -3,6 +3,8 @@ import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import replace from 'rollup-plugin-replace';
 import { uglify } from 'rollup-plugin-uglify';
+import postcss from 'rollup-plugin-postcss';
+import postcssModules from 'postcss-modules';
 import pkg from './package.json'
 
 
@@ -19,6 +21,7 @@ const bundle = (fileFormat, {format, minify}) => {
   }
 
   const shouldMinify = minify && format === FORMATS.UMD;
+  const cssExportMap = {};
   const externals = format === FORMATS.UMD
     ? Object.keys(pkg.peerDependencies || {})
     : [
@@ -41,7 +44,21 @@ const bundle = (fileFormat, {format, minify}) => {
     external: externals,
     plugins: [
       resolve({ jsnext: true, main: true }),
-      commonjs({ include: 'node_modules/**' }),
+      postcss({
+        plugins: [
+          postcssModules({
+            getJSON (id, exportTokens) {
+              cssExportMap[id] = exportTokens;
+            }
+          })
+        ],
+        getExportNamed: false,
+        getExport (id) {
+          return cssExportMap[id];
+        },
+        extract: 'dist/styles.css',
+      }),
+      commonjs(),
       babel({
         exclude: 'node_modules/**',
       }),
