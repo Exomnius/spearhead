@@ -4,10 +4,11 @@ import styles from './styles.css';
 
 const cx = classNames.bind(styles);
 
-const NavBarLogo = ({src, alt}) => (
-  <div>
-    <img src={src} alt={alt} className={cx('NavBarLogo')}/>
-  </div>
+const NavBarNav = ({children}) => (
+  <ul className={cx('NavBarNav')}>
+    {children}
+  </ul>
 );
 
-export default NavBarLogo;
+
+export default NavBarNav;

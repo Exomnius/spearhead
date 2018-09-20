@@ -1,0 +1,11 @@
+.NavBarContainer {
+  background-color: red;
+}
+
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: auto;
+  max-width: 1200px;
+}

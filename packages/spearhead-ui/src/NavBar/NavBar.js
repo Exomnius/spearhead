@@ -1,20 +1,29 @@
 import React from 'react';
-import NavBarLogo from './NavBarLogo/NavBarLogo';
 import classNames from 'classnames/bind';
-import styles from './NavBar.css';
+import NavBarLogo from './NavBarLogo/NavBarLogo';
+import NavBarNav from './NavBarNav/NavBarNav';
+import NavBarNavItem from './NavBarNav/NavBarNavItem/NavBarNavItem';
+import styles from './styles.css';
 
-let cx = classNames.bind(styles);
+class NavBar extends React.Component {
+  render() {
+    const {children} = this.props;
 
-console.log('******************************************$');
-console.log(cx);
-console.log('******************************************$');
+    const cx = classNames.bind(styles);
 
-const NavBar = ({children}) => (
-  <nav className={cx.bind(styles.NavBar)}>
-    {children}
-  </nav>
-);
+    return (
+      <div className={cx('NavBarContainer')}>
+        <nav className={cx('NavBar')}>
+          {children}
+        </nav>
+      </div>
+
+    );
+  }
+}
 
 NavBar.Logo = NavBarLogo;
+NavBar.Nav = NavBarNav;
+NavBar.NavItem = NavBarNavItem;
 
 export default NavBar;

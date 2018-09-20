@@ -45,23 +45,18 @@ const bundle = (fileFormat, {format, minify}) => {
     plugins: [
       resolve({ jsnext: true, main: true }),
       postcss({
-        plugins: [
-          postcssModules({
-            getJSON (id, exportTokens) {
-              cssExportMap[id] = exportTokens;
-            }
-          })
-        ],
+        modules: true,
         getExportNamed: false,
         getExport (id) {
           return cssExportMap[id];
         },
-        extract: 'dist/styles.css',
+        extract: 'dist/styles.css'
       }),
-      commonjs(),
       babel({
         exclude: 'node_modules/**',
+        runtimeHelpers: true
       }),
+      commonjs(),
       format === FORMATS.UMD
         ?  replace({'process.env.NODE_ENV': JSON.stringify(shouldMinify ? 'production' : 'development')})
         : null,

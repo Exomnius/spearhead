@@ -1,0 +1,22 @@
+.PortfolioCard {
+  max-width: 60%;
+}
+
+.PortfolioCard--Flipped {
+  right: 0;
+}
+
+
+.PortfolioCardBody--Flipped {
+  flex-flow: row-reverse;
+  align-self: end;
+}
+
+.PortfolioCardImage img {
+  width: 200px;
+}
+
+.PortfolioCardText {
+  padding: 10px;
+  width: 500px;
+}

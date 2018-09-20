@@ -1,0 +1,52 @@
+.styles_NavBarContainer__2gmvq {
+  background-color: red;
+}
+
+.styles_NavBar__2NiP3 {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: auto;
+  max-width: 1200px;
+}
+
+.styles_Container__24_lP {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.styles_Row__2BDkc {
+  display: flex;
+  flex-direction: row;
+}
+
+.styles_Card__3dgwR {
+
+}
+
+.styles_Footer__2HDOm {
+  width: 100%;
+  text-align: center;
+}
+
+.styles_NavBarLogo__2_UiB {
+  margin-right: 10px;
+}
+
+.styles_NavBarNav__1qhZB {
+  display: flex;
+  flex-direction: row;
+  margin: 0 10px;
+  align-items: center;
+}
+
+.styles_CardBody__q51vO {
+  display: flex;
+}
+
+.styles_NavBarNavItem__2PysO {
+  list-style: none;
+  padding: 0 10px;
+}
