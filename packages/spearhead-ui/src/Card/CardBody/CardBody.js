@@ -1,7 +1,7 @@
 import React from 'react';
 import cnBind from 'classnames/bind';
 import classNames from 'classnames';
-import styles from './styles.css';
+import styles from './styles.scss';
 
 class CardBody extends React.Component {
   render() {

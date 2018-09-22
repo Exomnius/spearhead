@@ -1,7 +1,7 @@
 import React from 'react';
 import cnBind from 'classnames/bind';
 import classNames from 'classnames';
-import styles from './styles.css';
+import styles from './styles.scss';
 import CardBody from './CardBody/CardBody';
 
 const cx = cnBind.bind(styles);

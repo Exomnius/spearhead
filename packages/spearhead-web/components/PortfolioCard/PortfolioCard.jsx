@@ -5,7 +5,7 @@ import styles from './styles.css';
 
 const cx = classNames.bind(styles);
 
-const PortfolioCard = ({title, text, image, offset}) => (
+const PortfolioCard = ({title, text, image, tags, offset}) => (
   <Card className={cx('PortfolioCard', {
     'PortfolioCard--Flipped': offset
   })}>
@@ -15,8 +15,22 @@ const PortfolioCard = ({title, text, image, offset}) => (
       <div className={cx('PortfolioCardImage')}>
         <img src={image} alt={title}/>
       </div>
-      <div className={cx('PortfolioCardText')}>
-        {text}
+      <div className={cx('PortfolioCardContent', {
+        'PortfolioCardContent--Flipped': offset
+      })}>
+        <h3 className={cx('PortfolioCardTitle')}>
+          {title}
+        </h3>
+        <div className={cx('PortfolioCardText')}>
+          {text}
+        </div>
+        <div className={cx('PortfolioCardSkills')}>
+          {tags && tags.map(tag => (
+            <div className={cx('PortfolioCardSkill')}>
+              {tag}
+            </div>
+          ))}
+        </div>
       </div>
     </Card.Body>
   </Card>

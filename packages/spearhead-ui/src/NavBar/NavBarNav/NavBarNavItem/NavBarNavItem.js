@@ -1,11 +1,12 @@
 import React from 'react';
-import classNames from 'classnames/bind';
-import styles from './styles.css';
+import cnBind from 'classnames/bind';
+import classNames from 'classnames';
+import styles from './styles.scss';
 
-const cx = classNames.bind(styles);
+const cx = cnBind.bind(styles);
 
-const NavBarNavItem = ({children}) => (
-  <li className={cx('NavBarNavItem')}>
+const NavBarNavItem = ({children, active}) => (
+  <li className={classNames(cx('NavBarNavItem'), {'active': active})}>
     {children}
   </li>
 );

@@ -4,7 +4,6 @@ import babel from 'rollup-plugin-babel';
 import replace from 'rollup-plugin-replace';
 import { uglify } from 'rollup-plugin-uglify';
 import postcss from 'rollup-plugin-postcss';
-import postcssModules from 'postcss-modules';
 import pkg from './package.json'
 
 

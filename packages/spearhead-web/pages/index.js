@@ -1,10 +1,13 @@
 import React from 'react';
 import Link from 'next/link'
+import cnBind from 'classnames/bind';
 import {NavBar, Header, Container, Row, Footer} from 'spearhead-ui';
-
+import PortfolioCard from '../components/PortfolioCard/PortfolioCard';
 import 'spearhead-ui/dist/styles.css';
 import './global.css';
-import PortfolioCard from '../components/PortfolioCard/PortfolioCard';
+import styles from './index.css';
+
+const cx = cnBind.bind(styles);
 
 export default () => (
   <div>
@@ -12,7 +15,7 @@ export default () => (
       <NavBar>
         <NavBar.Logo src="https://via.placeholder.com/50x50" alt="spearhead logo"/>
         <NavBar.Nav>
-          <NavBar.NavItem>
+          <NavBar.NavItem active>
             <Link href="/">Home</Link>
           </NavBar.NavItem>
           <NavBar.NavItem>
@@ -22,7 +25,7 @@ export default () => (
       </NavBar>
     </header>
     <Container>
-      <Row>
+      <Row className={cx('Row')}>
         <PortfolioCard
           title="G-Star RAW"
           image="https://via.placeholder.com/500x500"

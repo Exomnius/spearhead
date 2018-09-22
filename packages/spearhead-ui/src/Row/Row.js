@@ -1,15 +1,16 @@
 import React from 'react';
-import classNames from 'classnames/bind';
-import styles from './styles.css';
+import cnBind from 'classnames/bind';
+import classNames from 'classnames';
+import styles from './styles.scss';
 
 class Row extends React.Component {
   render() {
-    const {children} = this.props;
+    const {children, className} = this.props;
 
-    const cx = classNames.bind(styles);
+    const cx = cnBind.bind(styles);
 
     return (
-      <div className={cx('Row')}>
+      <div className={classNames(cx('Row'), className)}>
         {children}
       </div>
 

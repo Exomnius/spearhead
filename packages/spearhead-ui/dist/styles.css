@@ -1,5 +1,6 @@
 .styles_NavBarContainer__2gmvq {
-  background-color: red;
+  background-color: #444444;
+  border-bottom: 1px solid #616161;
 }
 
 .styles_NavBar__2NiP3 {
@@ -10,43 +11,46 @@
   max-width: 1200px;
 }
 
-.styles_Container__24_lP {
+.styles_Container__3It1D {
   display: flex;
   flex-direction: column;
   max-width: 1200px;
-  margin: auto;
-}
+  margin: auto; }
 
-.styles_Row__2BDkc {
+.styles_Row__18geS {
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: column; }
 
-.styles_Card__3dgwR {
 
-}
-
-.styles_Footer__2HDOm {
+.styles_Footer__1Pq77 {
   width: 100%;
-  text-align: center;
-}
+  text-align: center; }
 
-.styles_NavBarLogo__2_UiB {
-  margin-right: 10px;
-}
+.styles_NavBarLogo__21sgZ {
+  margin-right: 10px; }
 
-.styles_NavBarNav__1qhZB {
+.styles_NavBarNav__20SSn {
   display: flex;
   flex-direction: row;
   margin: 0 10px;
-  align-items: center;
-}
+  align-items: center; }
 
-.styles_CardBody__q51vO {
-  display: flex;
-}
+.styles_CardBody__3x_bF {
+  display: flex; }
 
-.styles_NavBarNavItem__2PysO {
+.styles_NavBarNavItem__XiA_e {
   list-style: none;
   padding: 0 10px;
-}
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle; }
+
+.styles_NavBarNavItem__XiA_e a {
+  color: white; }
+
+.styles_NavBarNavItem__XiA_e a {
+  text-decoration: none; }
+
+.styles_NavBarNavItem__XiA_e.styles_active__20gTV {
+  border-bottom: 2px solid red; }

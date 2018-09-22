@@ -1,0 +1,22 @@
+.NavBarNavItem {
+  list-style: none;
+  padding: 0 10px;
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+}
+
+.NavBarNavItem a {
+  color: white;
+}
+
+.NavBarNavItem a {
+  text-decoration: none;
+}
+
+.NavBarNavItem.active {
+  border-bottom: 2px solid red;
+
+}
+

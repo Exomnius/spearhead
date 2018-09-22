@@ -1200,7 +1200,7 @@ var bind = createCommonjsModule(function (module) {
 })();
 });
 
-var styles = { "NavBarLogo": "styles_NavBarLogo__2_UiB" };
+var styles = { "NavBarLogo": "styles_NavBarLogo__21sgZ" };
 
 var cx = bind.bind(styles);
 
@@ -1214,7 +1214,7 @@ var NavBarLogo = function NavBarLogo(_ref) {
   );
 };
 
-var styles$1 = { "NavBarNav": "styles_NavBarNav__1qhZB" };
+var styles$1 = { "NavBarNav": "styles_NavBarNav__20SSn" };
 
 var cx$1 = bind.bind(styles$1);
 
@@ -1227,15 +1227,16 @@ var NavBarNav = function NavBarNav(_ref) {
   );
 };
 
-var styles$2 = { "NavBarNavItem": "styles_NavBarNavItem__2PysO" };
+var styles$2 = { "NavBarNavItem": "styles_NavBarNavItem__XiA_e", "active": "styles_active__20gTV" };
 
 var cx$2 = bind.bind(styles$2);
 
 var NavBarNavItem = function NavBarNavItem(_ref) {
-  var children = _ref.children;
+  var children = _ref.children,
+      active = _ref.active;
   return React.createElement(
     'li',
-    { className: cx$2('NavBarNavItem') },
+    { className: classNames(cx$2('NavBarNavItem'), { 'active': active }) },
     children
   );
 };
@@ -1275,7 +1276,7 @@ NavBar.Logo = NavBarLogo;
 NavBar.Nav = NavBarNav;
 NavBar.NavItem = NavBarNavItem;
 
-var styles$4 = { "Container": "styles_Container__24_lP" };
+var styles$4 = { "Container": "styles_Container__3It1D" };
 
 var Container = function (_React$Component) {
   _inherits(Container, _React$Component);
@@ -1302,7 +1303,7 @@ var Container = function (_React$Component) {
   return Container;
 }(React.Component);
 
-var styles$5 = { "Row": "styles_Row__2BDkc" };
+var styles$5 = { "Row": "styles_Row__18geS" };
 
 var Row = function (_React$Component) {
   _inherits(Row, _React$Component);
@@ -1314,14 +1315,16 @@ var Row = function (_React$Component) {
   }
 
   Row.prototype.render = function render() {
-    var children = this.props.children;
+    var _props = this.props,
+        children = _props.children,
+        className = _props.className;
 
 
     var cx = bind.bind(styles$5);
 
     return React.createElement(
       'div',
-      { className: cx('Row') },
+      { className: classNames(cx('Row'), className) },
       children
     );
   };
@@ -1329,9 +1332,9 @@ var Row = function (_React$Component) {
   return Row;
 }(React.Component);
 
-var styles$6 = { "Card": "styles_Card__3dgwR" };
+var styles$6 = {};
 
-var styles$7 = { "CardBody": "styles_CardBody__q51vO" };
+var styles$7 = { "CardBody": "styles_CardBody__3x_bF" };
 
 var CardBody = function (_React$Component) {
   _inherits(CardBody, _React$Component);
@@ -1389,7 +1392,7 @@ var Card = function (_React$Component) {
 
 Card.Body = CardBody;
 
-var styles$8 = { "Footer": "styles_Footer__2HDOm" };
+var styles$8 = { "Footer": "styles_Footer__1Pq77" };
 
 var Footer = function (_React$Component) {
   _inherits(Footer, _React$Component);
