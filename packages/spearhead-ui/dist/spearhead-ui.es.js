@@ -1221,7 +1221,7 @@ var NavBarNav = function NavBarNav(_ref) {
   );
 };
 
-var styles$2 = { "NavBarNavItem": "styles_NavBarNavItem__XiA_e", "active": "styles_active__20gTV" };
+var styles$2 = { "NavBarNavItem": "styles_NavBarNavItem__XiA_e", "NavBarNavItem--Active": "styles_NavBarNavItem--Active__1QBgi" };
 
 var cx$2 = bind.bind(styles$2);
 
@@ -1230,7 +1230,7 @@ var NavBarNavItem = function NavBarNavItem(_ref) {
       active = _ref.active;
   return React.createElement(
     'li',
-    { className: classNames(cx$2('NavBarNavItem'), { 'active': active }) },
+    { className: cx$2('NavBarNavItem', { 'NavBarNavItem--Active': active }) },
     children
   );
 };

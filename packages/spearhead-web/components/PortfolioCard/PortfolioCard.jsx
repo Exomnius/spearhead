@@ -5,7 +5,7 @@ import styles from './styles.css';
 
 const cx = classNames.bind(styles);
 
-const PortfolioCard = ({title, text, image, tags, offset}) => (
+const PortfolioCard = ({title, text, image, skills, offset}) => (
   <Card className={cx('PortfolioCard', {
     'PortfolioCard--Flipped': offset
   })}>
@@ -24,12 +24,17 @@ const PortfolioCard = ({title, text, image, tags, offset}) => (
         <div className={cx('PortfolioCardText')}>
           {text}
         </div>
-        <div className={cx('PortfolioCardSkills')}>
-          {tags && tags.map(tag => (
-            <div className={cx('PortfolioCardSkill')}>
-              {tag}
-            </div>
-          ))}
+        <div className={cx('SkillsContainer')}>
+          {skills && (
+            <>
+              <span className={cx('SkillsTitle')}>
+                Skills:
+              </span>
+              <div className={cx('SkillsList')}>
+                {skills.join(', ')}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </Card.Body>

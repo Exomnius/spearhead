@@ -32,3 +32,15 @@
 .PortfolioCardText--Flipped {
   text-align: right;
 }
+
+.SkillsContainer {
+  margin-top: 10px;
+}
+
+.SkillsTitle {
+  margin-right: 5px;
+}
+
+.SkillsList {
+  display: inline-block;
+}
