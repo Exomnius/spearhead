@@ -26,14 +26,14 @@
   width: 100%;
   text-align: center; }
 
-.styles_NavBarLogo__21sgZ {
-  margin-right: 10px; }
-
 .styles_NavBarNav__20SSn {
   display: flex;
   flex-direction: row;
   margin: 0 10px;
   align-items: center; }
+
+.styles_NavBarLogo__21sgZ {
+  margin-right: 10px; }
 
 .styles_CardBody__3x_bF {
   display: flex; }
